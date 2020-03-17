@@ -1,0 +1,117 @@
+@import "../components/index.less";
+
+.sider
+    box-shadow 2px 0 6px rgba(0,21,41,.35)
+    z-index 3
+    &.light
+        background-color #fff
+        -webkit-box-shadow 2px 0 8px 0 rgba(29,35,41,.05)
+        box-shadow 2px 0 8px 0 rgba(29,35,41,.05)
+        .ant-menu-light
+            border-right-color transparent
+    &.ant-fixed-sidemenu
+        position fixed
+        height 100%
+
+//PageHeader
+
+.header-animat
+    position relative
+    z-index 2
+.showHeader-enter-active
+    transition all 0.25s ease
+.showHeader-leave-active
+    transition all 0.5s ease
+.showHeader-enter, .showHeader-leave-to
+    opacity 0
+.ant-layout-header.light
+    background-color #fff
+    box-shadow 0 1px 4px rgba(0,21,41,.08)
+    transition background .3s,width .2s
+    .ant-menu-horizontal
+        border-bottom: 0
+    .page-top
+        .user-wrapper
+            .action
+                &:hover
+                    background rgba(0,0,0,.035);
+                color: rgba(0,0,0,.65)
+.sideHeader
+    position relative
+    background #fff !important
+    padding: 0 !important
+    z-index 2
+.page-top
+    display flex
+    .page-top-left
+        display flex
+        flex 0 1 1000px
+        .ant-menu-horizontal
+            height 64px
+            line-height 64px
+            margin-left 20px
+    .page-top-right
+        flex: 1 0 auto
+    .user-wrapper
+        .action
+            &:hover
+                background: rgba(255,255,255,.1);
+            color: rgba(255,255,255,.65)
+.page-header
+    display flex
+    justify-content space-between
+    align-items center
+    box-shadow 0 1px 4px rgba(0,21,41,.08)
+.ant-dropdown-link
+    font-size 18px
+    font-weight 500
+    letter-spacing 1px
+.trigger
+    font-size 18px
+    line-height 64px
+    padding 0 24px
+    cursor pointer
+    transition color .3s
+    vertical-align 0
+.trigger
+    &:hover
+        color #1890ff
+.ant-header-fixedHeader
+    position fixed
+    top 0
+    right 0
+    z-index 2
+    width 100%
+    -webkit-transition width .2s
+    transition width .2s
+.ant-header-fixedHeader.ant-header-side-opened,
+.ant-header-fixedHeader.ant-header-side-closed
+    width 100%
+.ant-layout-has-sider .ant-header-fixedHeader.ant-header-side-opened
+    width calc(100% - 200px)
+.ant-layout-has-sider .ant-header-fixedHeader.ant-header-side-closed
+    width calc(100% - 80px)
+
+// fix: preview方式打包后, 分步表单样式错误的问题
+.ant-steps-item-process .ant-steps-item-icon > span.ant-steps-icon
+    color #fff
+
+ // fix: preview方式打包后, 对于无子菜单的菜单样式错误问题
+.ant-menu-dark .ant-menu-item-selected > a.router-link-active
+    color #fff
+
+.ant-menu-dark .ant-menu-item-selected > a.router-link-active:hover
+    color #fff
+
+// fix: 文本框,选择框,数字输入框,日期选择,日期范围选择组件获取焦点后border样式与对应主题风格不一致问题
+.ant-time-picker-input:focus,.ant-input-number:focus, .ant-input-number-focused, .ant-select-focused .ant-select-selection, .ant-select-selection:focus, .ant-select-selection:active, .ant-calendar-picker:focus .ant-calendar-picker-input:not(.ant-input-disabled), .ant-input:focus {
+    border-color #40a9ff
+    outline 0
+    box-shadow 0 0 0 2px color('@{primary-color}20')
+    border-right-width 1px !important
+}
+
+// fix: 日历控件的样式问题
+.ant-calendar-selected-day div.ant-calendar-date, .ant-calendar-selected-date div.ant-calendar-date
+  color #fff
+  background @primary-color

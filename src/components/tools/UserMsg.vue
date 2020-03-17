@@ -1,0 +1,82 @@
+<template>
+  <a-popover
+    v-model="visible"
+    trigger="click"
+    placement="bottomRight"
+    overlayClassName="header-notice-wrapper"
+    :autoAdjustOverflow="true"
+    :arrowPointAtCenter="true"
+    :overlayStyle="{ top: '50px', width: '300px' }"
+  >
+    <template slot="content">
+      <a-spin :spinning="loadding">
+        <a-tabs>
+          <a-tab-pane tab="通知" key="1">
+            <a-list>
+              <a-list-item>
+                <a-list-item-meta title="你收到了 14 份新周报" description="一年前">
+                  <a-avatar style="background-color: white" slot="avatar" src="https://gw.alipayobjects.com/zos/rmsportal/ThXAXghbEsBCCSDihZxY.png"/>
+                </a-list-item-meta>
+              </a-list-item>
+              <a-list-item>
+                <a-list-item-meta title="你推荐的 曲妮妮 已通过第三轮面试" description="一年前">
+                  <a-avatar style="background-color: white" slot="avatar" src="https://gw.alipayobjects.com/zos/rmsportal/OKJXDXrmkNshAMvwtvhu.png"/>
+                </a-list-item-meta>
+              </a-list-item>
+              <a-list-item>
+                <a-list-item-meta title="这种模板可以区分多种通知类型" description="一年前">
+                  <a-avatar style="background-color: white" slot="avatar" src="https://gw.alipayobjects.com/zos/rmsportal/kISTdvpyTAhtGxpovNWd.png"/>
+                </a-list-item-meta>
+              </a-list-item>
+            </a-list>
+          </a-tab-pane>
+          <a-tab-pane tab="消息" key="2">
+            123
+          </a-tab-pane>
+          <a-tab-pane tab="待办" key="3">
+            123
+          </a-tab-pane>
+        </a-tabs>
+      </a-spin>
+    </template>
+    <span @click="fetchNotice" class="header-notice action">
+      <a-badge count="12">
+        <a-icon style="top: -20px; right: 5px;font-size:16px" type="bell" />
+      </a-badge>
+    </span>
+  </a-popover>
+</template>
+<script>
+export default {
+  data () {
+    return {
+      loadding: false,
+      visible: false
+    }
+  },
+  methods: {
+    fetchNotice () {
+      if (!this.visible) {
+        this.loadding = true
+        setTimeout(() => {
+          this.loadding = false
+        }, 1000)
+      } else {
+        this.loadding = false
+      }
+      this.visible = !this.visible
+    }
+  }
+}
+</script>
+<style lang="stylus" scoped>
+    .header-notice
+      cursor pointer
+      padding 0 12px !important
+      height 100%
+      >>> .ant-badge-count
+        top -5px
+        right -5px
+    .header-notice-wrapper
+      top 50px !important
+</style>
